@@ -1,4 +1,4 @@
-name: run main.py
+name: application 2
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - main
   workflow_dispatch:
   schedule:
-    - cron: '13,43 * * * *' # At 00:00 on Monday
+    - cron: "43 * * * *"
 
 jobs:
   build:
@@ -18,7 +18,7 @@ jobs:
       - name: setup python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.10' # install the python version needed
+          python-version: "3.10" # install the python version needed
 
       - name: cache python packages
         uses: actions/cache@v2
@@ -35,10 +35,10 @@ jobs:
 
       - name: execute py script # run main.py
         env:
-          LOCATION: ${{ secrets.LOCATION }}
-          NUMBER: ${{ secrets.NUMBER }}
-          PASSPORT_NUMBER: ${{ secrets.PASSPORT_NUMBER }}
-          SURNAME: ${{ secrets.SURNAME }}
+          LOCATION: ${{ secrets.LOCATION2 }}
+          NUMBER: ${{ secrets.NUMBER2 }}
+          PASSPORT_NUMBER: ${{ secrets.PASSPORT_NUMBER2 }}
+          SURNAME: ${{ secrets.SURNAME2 }}
           TIMEZONE: ${{ secrets.TIMEZONE }}
           FROM: ${{ secrets.FROM }}
           TO: ${{ secrets.TO }}
